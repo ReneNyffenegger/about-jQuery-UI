@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+  <title>jquery UI: Modal vs Non modal dialog</title>
+
+<script src ="../prerequisites/jquery-latest.min.js"></script>
+<script src ="../prerequisites/jqeury-ui.min.js"></script>
+<link   href="../prerequisites/jquery-ui.css"   rel="stylesheet"  />
+
+  <script type="text/javascript">
+    function open_non_modal_dialog() { $('#non-modal-dialog').dialog(             ); }
+    function open_modal_dialog    () { $(    '#modal-dialog').dialog({modal: true}); }
+  </script>
+
+</head>
+<body>
+
+  <div id="non-modal-dialog" title="Dialog 1" style='display:none'>
+     You opened the non modal dialog
+  </div>
+
+  <div id="modal-dialog" title="Dialog 2" style='display:none'>
+     You opened the modal dialog
+  </div>
+
+  <a href='javascript:open_non_modal_dialog();'>Open non modal dialog</a><br>
+  <a href='javascript:open_modal_dialog();'>Open modal dialog</a><br>
+
+</body>
+</html>
