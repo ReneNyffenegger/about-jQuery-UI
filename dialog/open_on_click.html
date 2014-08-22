@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+  <title>jquery UI: basic Dialog</title>
+
+<script src ="../prerequisites/jquery-latest.min.js"></script>
+<script src ="../prerequisites/jqeury-ui.min.js"></script>
+<link   href="../prerequisites/jquery-ui.css"   rel="stylesheet"  />
+
+  <script type="text/javascript">
+    function open_dialog() {
+      $('#dialog').dialog();
+    }
+  </script>
+
+</head>
+<body>
+
+  <div id="dialog" title="Dialog" style='display:none'>
+     This dialog is rather a monolog!
+  </div>
+
+  <a href='javascript:open_dialog();'>Open dialog</a>
+
+</body>
+</html>
