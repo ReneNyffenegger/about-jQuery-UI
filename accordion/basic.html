@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+  <title>jquery UI: Accordion</title>
+
+<script src ="../prerequisites/jquery-latest.min.js"></script>
+<script src ="../prerequisites/jqeury-ui.min.js"></script>
+<link   href="../prerequisites/jquery-ui.css"   rel="stylesheet"  />
+
+  <script type="text/javascript">
+    
+  $(function() { 
+      $('#accordion').accordion();
+  });
+  </script>
+
+</head>
+<body>
+
+  <div id="accordion" style='position:absolute; width:400px'>
+     <h3>First header</h3>
+         <div>First content panel</div>
+     <h1>Second header</h1>
+         <div>Second content panel
+              Some text
+              Some more text
+              Some more text
+        </div>
+     <h1>Third header</h1>
+         <div>The list is <ul>
+              <li>foo
+              <li>bar
+              <li>baz
+            </ul>
+         </div>
+  </div>
+
+
+</body>
+</html>
