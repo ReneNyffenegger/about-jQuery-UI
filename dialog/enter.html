@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+  <title>jquery UI: basic Dialog</title>
+
+<script src ="../prerequisites/jquery-latest.min.js"></script>
+<script src ="../prerequisites/jqeury-ui.min.js"></script>
+<link   href="../prerequisites/jquery-ui.css"   rel="stylesheet"  />
+
+  <script type="text/javascript">
+  $(function() { 
+      $('#dialog').dialog({
+
+        buttons: {
+          'Ok': function() {
+             $(this).dialog('close');
+          }
+        }
+      
+      });
+
+
+    $('#dialog').on('keydown', function(e) {
+
+      if (e.keyCode == 13) {
+        $(':button:contains("Ok")').click();
+      }
+
+    });
+
+  });
+
+  </script>
+
+</head>
+<body>
+
+  <div id="dialog" title="Basic dialog">
+    <table>
+      <tr><td>Foo</td><td><input></td></tr>
+      <tr><td>Bar</td><td><input></td></tr>
+      <tr><td>Baz</td><td><input></td></tr>
+    </table>
+    Click Ok or hit enter!
+  </div>
+
+
+</body>
+</html>
