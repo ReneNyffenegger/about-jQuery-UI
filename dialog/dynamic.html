@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Dynamic jQuery-UI dialog</title>
+
+  <script src ="../prerequisites/jquery-latest.min.js"></script>
+  <script src ="../prerequisites/jqeury-ui.min.js"></script>
+  <link   href="../prerequisites/jquery-ui.css"   rel="stylesheet"  />
+
+  <script type="text/javascript">
+
+    function dynamic_dialog(title, values) {
+
+      var dlg = $('<div>');
+
+      dlg.attr('title', title);
+
+      var tab = $('<table>');
+
+      var inputs = [];
+
+      for (var i=0; i< values.length; i++) {
+
+      console.log(i);
+
+        var tr          = $('<tr>'   );
+        var td_descript = $('<td>'   );
+        var td_input    = $('<td>'   );
+        var input       = $('<input>');
+        
+        td_descript.html(  values[i][0]);
+        input.attr('name', values[i][1]);
+
+        td_input.append(input);
+
+        tr.append(td_descript);
+        tr.append(td_input   );
+
+        tab.append(tr);
+
+        inputs.push(input);
+
+      }
+
+      dlg.data('inputs', inputs);
+
+      dlg.append(tab);
+
+      console.log(dlg.html());
+
+      dlg.value = function(name) {
+
+        return $(this).find('[name="' + name + '"]').val();
+
+      }
+
+      return dlg;
+
+    }
+
+    $(function() {
+
+       var dlg = dynamic_dialog('Dynamic dialog', [
+         ['Foo', 'foo'],
+         ['Bar', 'bar'],
+         ['Baz', 'baz']
+       ]);
+
+       $('body').append(dlg);
+
+
+       dlg.dialog({
+         modal:   true,
+         width:   500,
+         buttons: {
+           'Ok': function() {
+             $(this).dialog('close');
+             $('#out').html(
+               'You entered: ' +
+                 '<br>Foo=<b>' + dlg.value('foo') + '</b>' +
+                 '<br>Bar=<b>' + dlg.value('bar') + '</b>' +
+                 '<br>Baz=<b>' + dlg.value('baz') + '</b>'
+             )
+           }
+         }
+       });
+
+    });
+
+  </script>
+</head>
+<body>
+
+  <div id='out'>
+  </div>
+
+</body>
+</html>
