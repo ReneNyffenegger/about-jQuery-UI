@@ -18,11 +18,7 @@
 
       var tab = $('<table>');
 
-      var inputs = [];
-
       for (var i=0; i< values.length; i++) {
-
-      console.log(i);
 
         var tr          = $('<tr>'   );
         var td_descript = $('<td>'   );
@@ -38,25 +34,15 @@
         tr.append(td_input   );
 
         tab.append(tr);
-
-        inputs.push(input);
-
       }
-
-      dlg.data('inputs', inputs);
 
       dlg.append(tab);
 
-      console.log(dlg.html());
-
       dlg.value = function(name) {
-
         return $(this).find('[name="' + name + '"]').val();
-
       }
 
       return dlg;
-
     }
 
     $(function() {
